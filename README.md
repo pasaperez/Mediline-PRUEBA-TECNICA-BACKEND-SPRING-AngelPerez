@@ -87,7 +87,7 @@ Se puede acceder desde POSTMAN
 
 Ingresando al siguiente link:
 
-> http://localhost:10000/h2
+> http://localhost:9001/h2
 
 Cadena: jdbc:h2:mem:testdb
 Usuario: sa
