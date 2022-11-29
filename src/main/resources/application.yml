@@ -1,0 +1,38 @@
+
+#       ------Properties Application------
+
+spring:
+  application:
+    name: personas-movies
+  data:
+    rest:
+      basePath: /api
+
+#       ------Properties Inicializacion DB------
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+server:
+  port: 9001
+
+springdoc:
+  swagger-ui:
+    path: /documentacion

@@ -1,10 +1,9 @@
-package com.pasaperez.personas-movies.controllers;
+package com.pasaperez.personasmovies.controllers;
 
-import com.pasaperez.personas-movies.dtos.APIResponse;
-import com.pasaperez.personas-movies.entities.Base;
-import com.pasaperez.personas-movies.exceptions.AlreadyExistException;
-import com.pasaperez.personas-movies.exceptions.NotFoundException;
-import com.pasaperez.personas-movies.services.BaseService;
+import com.pasaperez.personasmovies.entities.Base;
+import com.pasaperez.personasmovies.exceptions.AlreadyExistException;
+import com.pasaperez.personasmovies.exceptions.NotFoundException;
+import com.pasaperez.personasmovies.services.BaseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -22,31 +21,31 @@ public abstract class BaseController <E extends Base, S extends BaseService<E, L
 
     @PostMapping("/")
     @Override
-    public ResponseEntity<APIResponse<E>> create(@Validated @RequestBody E entity) throws AlreadyExistException {
+    public ResponseEntity<E> create(@Validated @RequestBody E entity) throws AlreadyExistException {
         return new ResponseEntity<>(servicio.create(entity), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     @Override
-    public ResponseEntity<APIResponse<E>> getById(@PathVariable Long id) throws NotFoundException {
+    public ResponseEntity<E> getById(@PathVariable Long id) throws NotFoundException {
         return new ResponseEntity<>(servicio.findById(id), HttpStatus.OK);
     }
 
     @GetMapping("/")
     @Override
-    public ResponseEntity<APIResponse<List<E>>> getAll() {
+    public ResponseEntity<List<E>> getAll() {
         return new ResponseEntity<>(servicio.findAll(), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<APIResponse<E>> update(@PathVariable Long id, @Validated @RequestBody E entity) throws NotFoundException {
+    public ResponseEntity<E> update(@PathVariable Long id, @Validated @RequestBody E entity) throws NotFoundException {
         return new ResponseEntity<>(servicio.update(id, entity), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
     @Override
-    public ResponseEntity<APIResponse<E>> delete(@PathVariable Long id) throws NotFoundException {
+    public ResponseEntity<E> delete(@PathVariable Long id) throws NotFoundException {
         return servicio.delete(id)!=null ? new ResponseEntity<>(null, HttpStatus.NO_CONTENT) :
                 new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
     }

@@ -1,8 +1,8 @@
-package com.pasaperez.personas-movies.controllers;
+package com.pasaperez.personasmovies.controllers;
 
-import com.pasaperez.personas-movies.entities.Base;
-import com.pasaperez.personas-movies.exceptions.AlreadyExistException;
-import com.pasaperez.personas-movies.exceptions.NotFoundException;
+import com.pasaperez.personasmovies.entities.Base;
+import com.pasaperez.personasmovies.exceptions.AlreadyExistException;
+import com.pasaperez.personasmovies.exceptions.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,11 +1,6 @@
 package com.pasaperez.personasmovies.repositories;
 
-import com.pasaperez.personasmovies.entities.Movie;
-import com.pasaperez.personasmovies.entities.Persona;
+import com.pasaperez.personasmovies.entities.Parametro;
 
-import java.util.List;
-import java.util.Optional;
-
-public interface MovieRepository extends BaseRepository<Movie, Long> {
-    List<Movie> findByPersona(Persona persona);
+public interface ParametroRepository extends BaseRepository<Parametro, Long> {
 }

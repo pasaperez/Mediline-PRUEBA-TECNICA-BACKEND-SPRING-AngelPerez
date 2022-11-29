@@ -1,6 +1,6 @@
-package com.pasaperez.personas-movies.repositories;
+package com.pasaperez.personasmovies.repositories;
 
-import com.pasaperez.personas-movies.entities.Base;
+import com.pasaperez.personasmovies.entities.Base;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 

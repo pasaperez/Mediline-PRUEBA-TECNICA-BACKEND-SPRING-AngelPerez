@@ -1,11 +1,11 @@
-package com.pasaperez.personas-movies.exceptions.handler;
+package com.pasaperez.personasmovies.exceptions.handler;
 
-import com.pasaperez.personas-movies.dtos.APIResponse;
-import com.pasaperez.personas-movies.dtos.ErrorDTO;
-import com.pasaperez.personas-movies.exceptions.AlreadyExistException;
-import com.pasaperez.personas-movies.exceptions.DefaultException;
-import com.pasaperez.personas-movies.exceptions.NotFoundException;
-import com.pasaperez.personas-movies.exceptions.ResponseException;
+import com.pasaperez.personasmovies.dtos.APIResponse;
+import com.pasaperez.personasmovies.dtos.ErrorDTO;
+import com.pasaperez.personasmovies.exceptions.AlreadyExistException;
+import com.pasaperez.personasmovies.exceptions.DefaultException;
+import com.pasaperez.personasmovies.exceptions.NotFoundException;
+import com.pasaperez.personasmovies.exceptions.ResponseException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

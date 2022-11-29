@@ -1,4 +1,4 @@
-package com.pasaperez.personas-movies.exceptions;
+package com.pasaperez.personasmovies.exceptions;
 
 public class DefaultException extends RuntimeException {
 

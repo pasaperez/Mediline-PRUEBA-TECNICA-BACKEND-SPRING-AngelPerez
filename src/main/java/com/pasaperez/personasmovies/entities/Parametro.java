@@ -5,18 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Movie extends Base{
-    private String title;
-    private String genre;
-
-    @ManyToOne(optional = false)
-    private Persona persona;
-
+public class Parametro extends Base{
+    private int cantidad = -1;
 }

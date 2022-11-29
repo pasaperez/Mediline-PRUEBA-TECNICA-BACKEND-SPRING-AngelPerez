@@ -1,13 +1,13 @@
-package com.pasaperez.personas-movies;
+package com.pasaperez.personasmovies;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class personas-moviesApplication {
+public class PersonasMoviesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(personas-moviesApplication.class, args);
+        SpringApplication.run(PersonasMoviesApplication.class, args);
     }
 
 }

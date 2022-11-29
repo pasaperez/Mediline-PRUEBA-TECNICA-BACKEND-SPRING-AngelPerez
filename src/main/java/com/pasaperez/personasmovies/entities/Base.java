@@ -1,4 +1,4 @@
-package com.pasaperez.personas-movies.entities;
+package com.pasaperez.personasmovies.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,10 +1,10 @@
-package com.pasaperez.personas-movies;
+package com.pasaperez.personasmovies;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class personas-moviesApplicationTests {
+class PersonasMoviesApplicationTests {
 
     @Test
     void contextLoads() {

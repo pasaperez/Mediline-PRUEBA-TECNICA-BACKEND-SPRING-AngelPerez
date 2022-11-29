@@ -1,12 +1,10 @@
-package com.pasaperez.personas-movies.services;
+package com.pasaperez.personasmovies.services;
 
-import com.pasaperez.personas-movies.dtos.APIResponse;
-import com.pasaperez.personas-movies.dtos.mapper.MapperBase;
-import com.pasaperez.personas-movies.entities.Base;
-import com.pasaperez.personas-movies.exceptions.AlreadyExistException;
-import com.pasaperez.personas-movies.exceptions.NotFoundException;
-import com.pasaperez.personas-movies.repositories.BaseRepository;
-import com.pasaperez.personas-movies.services.interfaces.IBaseService;
+import com.pasaperez.personasmovies.entities.Base;
+import com.pasaperez.personasmovies.exceptions.AlreadyExistException;
+import com.pasaperez.personasmovies.exceptions.NotFoundException;
+import com.pasaperez.personasmovies.repositories.BaseRepository;
+import com.pasaperez.personasmovies.services.interfaces.IBaseService;
 
 import java.io.Serializable;
 import java.util.List;
@@ -21,11 +19,11 @@ public abstract class BaseService <E extends Base, ID extends Serializable> impl
     }
 
     @Override
-    public APIResponse<E> create(E entity) throws AlreadyExistException {
+    public E create(E entity) throws AlreadyExistException {
         if(checkIfExist(entity)){
             throw new AlreadyExistException();
         }
-        return MapperBase.toDTO(baseRepository.save(entity));
+        return baseRepository.save(entity);
     }
 
     @Override
@@ -41,33 +39,33 @@ public abstract class BaseService <E extends Base, ID extends Serializable> impl
     }
 
     @Override
-    public APIResponse<E> findById(ID id) throws NotFoundException {
+    public E findById(ID id) throws NotFoundException {
         Optional<E> optional = baseRepository.findById(id);
 
         if (optional.isEmpty()){
             throw new NotFoundException(String.valueOf(id));
         }
-        return MapperBase.toDTO(optional.get());
+        return optional.get();
     }
 
     @Override
-    public APIResponse<List<E>> findAll() {
-        return APIResponse.<List<E>>builder().data(baseRepository.findAll()).build();
+    public List<E> findAll() {
+        return baseRepository.findAll();
     }
 
     @Override
-    public APIResponse<E> update(ID id, E entity) throws NotFoundException {
+    public E update(ID id, E entity) throws NotFoundException {
         Optional<E> optional  = baseRepository.findById(id);
 
         if (optional.isEmpty()){
             throw new NotFoundException(String.valueOf(id));
         }
         entity.setId(optional.get().getId());
-        return MapperBase.toDTO(baseRepository.save(entity));
+        return baseRepository.save(entity);
     }
 
     @Override
-    public APIResponse<E> delete(ID id) throws NotFoundException {
+    public E delete(ID id) throws NotFoundException {
         Optional<E> optional  = baseRepository.findById(id);
 
         if (optional.isEmpty()){
@@ -75,6 +73,6 @@ public abstract class BaseService <E extends Base, ID extends Serializable> impl
         }
         E entityDelete = optional.get();
         baseRepository.delete(entityDelete);
-        return MapperBase.toDTO(entityDelete);
+        return entityDelete;
     }
 }
